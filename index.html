@@ -10,14 +10,14 @@
     <div
       class="drag-area"
       id="open"
-      ondrop="moveTo('open')"
+      ondrop="moveTo('open'); removeHighlight('closed')"
       ondragleave="removeHighlight('open')"
       ondragover="allowDrop(event); highlight('open')"
     ></div>
     <div
       class="drag-area"
       id="closed"
-      ondrop="moveTo('closed')"
+      ondrop="moveTo('closed'); removeHighlight('closed')"
       ondragleave="removeHighlight('closed')"
       ondragover="allowDrop(event); highlight('closed')"
     ></div>

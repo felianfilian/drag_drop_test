@@ -49,7 +49,14 @@ function allowDrop(ev) {
 }
 
 function highlight(id) {
-  document.getElementById(id).classList.add("drag-area-highight");
+  document.getElementById(id).classList.add("drag-area-highlight");
 }
 
-function removeHighlight() {}
+function removeHighlight(id) {
+  document.getElementById(id).classList.remove("drag-area-highlight");
+}
+
+function moveTo(category) {
+  todos[currentDraggedElement]["category"] = category;
+  updateHTML();
+}
