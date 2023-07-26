@@ -18,60 +18,38 @@ let todos = [
 
 let currentDraggedElement;
 
-// elemente den containern zuordnen
-/*
 function updateHTML() {
   let open = todos.filter((t) => t["category"] == "open");
-
   document.getElementById("open").innerHTML = "";
 
-  for (let index = 0; index < open.length; index++) {
-    const element = open[index];
+  open.forEach((index) => {
+    const element = index;
     document.getElementById("open").innerHTML += generateTodoHTML(element);
-  }
+  });
 
-  let closed = todos.filter((t) => t["category"] == "closed");
-
+  let close = todos.filter((t) => t["category"] == "closed");
   document.getElementById("closed").innerHTML = "";
 
-  for (let index = 0; index < closed.length; index++) {
-    const element = closed[index];
+  close.forEach((index) => {
+    const element = index;
     document.getElementById("closed").innerHTML += generateTodoHTML(element);
-  }
+  });
+}
+
+function generateTodoHTML(element) {
+  return `<div draggable='true' ondragstart='startDragging(${element["id"]})' class='todo'>${element["title"]}</div>`;
 }
 
 function startDragging(id) {
   currentDraggedElement = id;
 }
 
-function generateTodoHTML(element) {
-  return `<div draggable="true" ondragstart="startDragging(${element["id"]})" class="todo">${element["title"]}</div>`;
-}
-
 function allowDrop(ev) {
   ev.preventDefault();
 }
 
-function moveTo(category) {
-  todos[currentDraggedElement]["category"] = category;
-  updateHTML();
-}
-
 function highlight(id) {
-  document.getElementById(id).classList.add("drag-area-highlight");
+  document.getElementById(id).classList.add("drag-area-highight");
 }
 
-function removeHighlight(id) {
-  document.getElementById(id).classList.remove("drag-area-highlight");
-}
-*/
-
-function updateHTML() {
-  let open = todos.filter((t) => t["category"] == "open");
-  document.getElementById("open").innerHTML = "";
-
-  let close = todos.filter((t) => t["category"] == "close");
-  document.getElementById("close").innerHTML = "";
-}
-
-f;
+function removeHighlight() {}
